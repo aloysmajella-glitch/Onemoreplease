@@ -150,10 +150,92 @@
       font-weight: 500;
     }
 
-    /* ---------- HERO (Home) ---------- */
+    /* ---------- MOVING DIGITAL BANNER ---------- */
+    .moving-banner {
+      background: var(--white);
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding: 14px 0;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(62, 39, 35, 0.06);
+    }
+
+    .moving-banner-track {
+      display: flex;
+      width: max-content;
+      animation: scrollBanner 18s linear infinite;
+    }
+
+    .moving-banner-track:hover {
+      animation-play-state: paused;
+    }
+
+    .banner-item {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+      color: var(--brown-dark);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 0 40px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .banner-item .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .banner-item .brownie-icon {
+      font-size: 1.2rem;
+    }
+
+    @keyframes scrollBanner {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ---------- HERO ---------- */
     .hero {
-      padding: 60px 0 50px;
+      padding: 80px 0 60px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--cream);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background-image: url('logo.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
@@ -246,7 +328,80 @@
       border-radius: 2px;
     }
 
-    /* ---------- MENU POSTER (From Screenshot) ---------- */
+    /* ---------- CARDS ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--cream-dark);
+    }
+
+    .card-emoji {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--brown-light);
+      margin-bottom: 12px;
+    }
+
+    .card-price {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .card-price small {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--brown-light);
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--brown-mid);
+      margin-bottom: 18px;
+    }
+
+    .card ul li {
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card ul li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .card .btn {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+
+    /* ---------- MENU POSTER ---------- */
     .menu-poster {
       background: var(--cream);
       border-radius: var(--radius);
@@ -577,7 +732,7 @@
       font-size: 0.75rem;
     }
 
-    /* ---------- PRICING TABLE (Generic) ---------- */
+    /* ---------- PRICING TABLE ---------- */
     .pricing-table {
       width: 100%;
       border-collapse: collapse;
@@ -832,7 +987,12 @@
       }
 
       .hero {
-        padding: 40px 0 30px;
+        padding: 50px 0 40px;
+      }
+
+      .hero::before {
+        width: 300px;
+        height: 300px;
       }
 
       .section {
@@ -875,6 +1035,12 @@
       .nav-logo {
         font-size: 1.1rem;
       }
+
+      .banner-item {
+        font-size: 0.85rem;
+        padding: 0 24px;
+        letter-spacing: 2px;
+      }
     }
   </style>
 </head>
@@ -895,13 +1061,58 @@
     </div>
   </nav>
 
-  <!-- ========== HALAL NOTE (always visible) ========== -->
+  <!-- ========== HALAL NOTE ========== -->
   <div class="halal-note">
     ✅ Halal ingredients • Prepared in a Muslim household • Not MUIS Halal-certified
   </div>
 
   <!-- ========== TAB: HOME ========== -->
   <div id="tab-home" class="tab-content active">
+    
+    <!-- ========== MOVING DIGITAL BANNER ========== -->
+    <div class="moving-banner">
+      <div class="moving-banner-track">
+        <!-- Duplicated content for seamless loop -->
+        <div class="banner-item">
+          <span class="brownie-icon">🍫</span>
+          ONE MORE BROWNIES PLEASE
+          <span class="dot"></span>
+          FRESHLY BAKED IN SINGAPORE
+          <span class="dot"></span>
+          HALAL INGREDIENTS
+          <span class="dot"></span>
+          DM TO ORDER
+          <span class="brownie-icon">🍫</span>
+          ONE MORE BROWNIES PLEASE
+          <span class="dot"></span>
+          FRESHLY BAKED IN SINGAPORE
+          <span class="dot"></span>
+          HALAL INGREDIENTS
+          <span class="dot"></span>
+          DM TO ORDER
+        </div>
+        <div class="banner-item">
+          <span class="brownie-icon">🍫</span>
+          ONE MORE BROWNIES PLEASE
+          <span class="dot"></span>
+          FRESHLY BAKED IN SINGAPORE
+          <span class="dot"></span>
+          HALAL INGREDIENTS
+          <span class="dot"></span>
+          DM TO ORDER
+          <span class="brownie-icon">🍫</span>
+          ONE MORE BROWNIES PLEASE
+          <span class="dot"></span>
+          FRESHLY BAKED IN SINGAPORE
+          <span class="dot"></span>
+          HALAL INGREDIENTS
+          <span class="dot"></span>
+          DM TO ORDER
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO WITH LOGO BACKGROUND -->
     <section class="hero">
       <div class="container">
         <h1>One More, <em>Please.</em></h1>
@@ -953,11 +1164,10 @@
     </section>
   </div>
 
-  <!-- ========== TAB: MENU (REPLACED WITH SCREENSHOT INFO) ========== -->
+  <!-- ========== TAB: MENU ========== -->
   <div id="tab-menu" class="tab-content">
     <section class="section">
       <div class="container">
-        <!-- Menu Poster from Screenshot -->
         <div class="menu-poster">
           <div class="new-badge">NEW! LAUNCH</div>
           
@@ -966,7 +1176,6 @@
           <p class="poster-subtitle">Perfect for parties, gatherings & celebrations!</p>
 
           <div class="poster-grid">
-            <!-- Left: Brownie Visuals & Customize -->
             <div class="poster-left">
               <div class="brownie-visual">
                 <div class="badge-circle">
@@ -979,15 +1188,12 @@
               <div class="brownie-visual">🥜</div>
             </div>
 
-            <!-- Right: Pricing Info -->
             <div class="poster-right">
-              <!-- Individual Price -->
               <div class="individual-price">
                 <div class="label">Individual</div>
                 <div class="price">$10 <small>/tray</small></div>
               </div>
 
-              <!-- Party Pricing -->
               <div class="party-pricing-box">
                 <div class="header">Party Pricing</div>
                 <div class="row">
@@ -1012,14 +1218,12 @@
                 </div>
               </div>
 
-              <!-- Min Order Note -->
               <div class="min-order-note">
                 <strong>Minimum order for party pricing: 5 trays</strong>
               </div>
             </div>
           </div>
 
-          <!-- Customize Section -->
           <div class="customize-section">
             <div class="customize-title">Customize Your Flavour! ♡</div>
             <div class="customize-options">
@@ -1043,7 +1247,6 @@
             </div>
           </div>
 
-          <!-- Toppings -->
           <div class="toppings-box">
             <div class="toppings-label">
               Toppings
@@ -1057,7 +1260,6 @@
             </ul>
           </div>
 
-          <!-- Bottom Tagline -->
           <div class="poster-tagline">
             ♡ Thank you for supporting our small home bakery! ♡<br>
             <span class="brand">♥ One More Please ♥</span>
@@ -1255,31 +1457,26 @@
   <!-- ========== TAB SWITCHING SCRIPT ========== -->
   <script>
     function showTab(tabId) {
-      // Hide all tab contents
       var contents = document.querySelectorAll('.tab-content');
       contents.forEach(function(content) {
         content.classList.remove('active');
       });
 
-      // Remove active class from all tab buttons
       var buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(function(btn) {
         btn.classList.remove('active');
       });
 
-      // Show selected tab content
       var selectedContent = document.getElementById('tab-' + tabId);
       if (selectedContent) {
         selectedContent.classList.add('active');
       }
 
-      // Add active class to clicked button
       var activeButton = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
       if (activeButton) {
         activeButton.classList.add('active');
       }
 
-      // Scroll to top of page for a fresh view
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
