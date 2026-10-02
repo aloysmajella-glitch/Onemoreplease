@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One More, Please | Brownies SG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --brown-dark: #3E2723;
+      --brown-mid: #5D4037;
+      --brown-light: #8D6E63;
+      --cream: #FBF7F0;
+      --cream-dark: #F0E9DD;
+      --gold: #C9A227;
+      --gold-light: #E0C868;
+      --white: #FFFFFF;
+      --shadow: 0 4px 16px rgba(62, 39, 35, 0.08);
+      --radius: 12px;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--brown-dark);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--brown-dark);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ---------- NAVBAR / TABS ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(251, 247, 240, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-dark);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      cursor: pointer;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--brown-light);
+      padding: 8px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--brown-dark);
+      background: var(--cream-dark);
+    }
+
+    .tab-btn.active {
+      background: var(--brown-dark);
+      color: var(--white);
+    }
+
+    .tab-btn.order-tab {
+      background: var(--gold);
+      color: var(--brown-dark);
+      font-weight: 600;
+    }
+
+    .tab-btn.order-tab:hover {
+      background: var(--brown-dark);
+      color: var(--white);
+    }
+
+    /* ---------- TAB CONTENT ---------- */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- HALAL NOTE ---------- */
+    .halal-note {
+      text-align: center;
+      padding: 10px 0;
+      background: var(--cream-dark);
+      font-size: 0.78rem;
+      color: var(--brown-mid);
+      font-weight: 500;
+    }
+
+    /* ---------- HERO (Home) ---------- */
+    .hero {
+      padding: 60px 0 50px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--brown-light);
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--brown-dark);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      color: var(--brown-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--brown-dark);
+      color: var(--brown-dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--brown-dark);
+      color: var(--white);
+    }
+
+    /* ---------- SECTION ---------- */
+    .section {
+      padding: 50px 0;
+    }
+
+    .section-alt {
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--brown-light);
+      font-size: 0.95rem;
+      max-width: 450px;
+      margin: 0 auto;
+    }
+
+    .section-header .divider {
+      width: 50px;
+      height: 3px;
+      background: var(--gold);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ---------- MENU POSTER (From Screenshot) ---------- */
+    .menu-poster {
+      background: var(--cream);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--cream-dark);
+      padding: 40px 32px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .new-badge {
+      position: absolute;
+      top: 20px;
+      left: -30px;
+      background: #E91E63;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 40px;
+      transform: rotate(-15deg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .new-badge-bottom {
+      position: absolute;
+      bottom: 20px;
+      right: -30px;
+      background: #E91E63;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 6px 40px;
+      transform: rotate(-15deg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    .poster-brand {
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      margin-bottom: 8px;
+    }
+
+    .poster-title {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 4px;
+    }
+
+    .poster-subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--brown-light);
+      margin-bottom: 32px;
+    }
+
+    .poster-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 700px) {
+      .poster-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .poster-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .brownie-visual {
+      background: var(--cream-dark);
+      border-radius: 8px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border: 1px solid var(--cream-dark);
+      position: relative;
+    }
+
+    .brownie-visual .badge-circle {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--brown-dark);
+      color: var(--gold-light);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      font-weight: 700;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .brownie-visual .badge-circle span {
+      font-size: 1rem;
+    }
+
+    .poster-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .individual-price {
+      text-align: center;
+      border: 2px solid var(--brown-dark);
+      border-radius: 8px;
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .individual-price .label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      margin-bottom: 4px;
+    }
+
+    .individual-price .price {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+    }
+
+    .individual-price .price small {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--brown-light);
+    }
+
+    .party-pricing-box {
+      border: 1px solid var(--brown-light);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .party-pricing-box .header {
+      background: var(--brown-dark);
+      color: var(--gold-light);
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 8px;
+    }
+
+    .party-pricing-box .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      color: var(--brown-mid);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .party-pricing-box .row:last-child {
+      border-bottom: none;
+    }
+
+    .party-pricing-box .row:nth-child(even) {
+      background: var(--cream);
+    }
+
+    .party-pricing-box .row .price {
+      font-weight: 700;
+      color: var(--brown-dark);
+    }
+
+    .min-order-note {
+      background: var(--cream-dark);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.72rem;
+      color: var(--brown-mid);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .min-order-note strong {
+      color: var(--brown-dark);
+    }
+
+    /* Customize Section */
+    .customize-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 2px dashed var(--cream-dark);
+    }
+
+    .customize-title {
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+      margin-bottom: 20px;
+    }
+
+    .customize-options {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .customize-option {
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .customize-option .icon {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    .customize-option .name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+    }
+
+    .customize-option .desc {
+      font-size: 0.7rem;
+      color: var(--brown-light);
+      font-style: italic;
+    }
+
+    .customize-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: var(--brown-light);
+    }
+
+    /* Toppings */
+    .toppings-box {
+      background: var(--cream-dark);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .toppings-box .toppings-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+      line-height: 1.3;
+    }
+
+    .toppings-box .toppings-label span {
+      display: block;
+      font-size: 1rem;
+      color: var(--gold);
+    }
+
+    .toppings-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .toppings-list li {
+      background: var(--white);
+      border-radius: 50px;
+      padding: 4px 14px;
+      font-size: 0.75rem;
+      color: var(--brown-mid);
+      border: 1px solid var(--cream);
+    }
+
+    /* Bottom tagline */
+    .poster-tagline {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--cream-dark);
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      font-style: italic;
+    }
+
+    .poster-tagline .brand {
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown-dark);
+      font-style: normal;
+      font-size: 0.75rem;
+    }
+
+    /* ---------- PRICING TABLE (Generic) ---------- */
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      font-size: 0.85rem;
+    }
+
+    .pricing-table th {
+      background: var(--brown-dark);
+      color: var(--gold-light);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--cream-dark);
+      color: var(--brown-mid);
+    }
+
+    .pricing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pricing-table tr:nth-child(even) {
+      background: var(--cream);
+    }
+
+    .pricing-note {
+      font-size: 0.75rem;
+      color: var(--brown-light);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* ---------- REVIEWS ---------- */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--cream-dark);
+    }
+
+    .review-text {
+      font-size: 0.85rem;
+      color: var(--brown-mid);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .review-author {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brown-dark);
+    }
+
+    .review-date {
+      font-size: 0.7rem;
+      color: var(--brown-light);
+      font-weight: 400;
+    }
+
+    /* ---------- FAVOURS ---------- */
+    .favours-flex {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 700px) {
+      .favours-flex {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .favours-image {
+      background: var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 3.5rem;
+      border: 1px dashed var(--brown-light);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .favours-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .favours-content p {
+      color: var(--brown-light);
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+    }
+
+    .favours-content ul {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+
+    .favours-content ul li {
+      padding: 4px 0;
+      font-size: 0.85rem;
+      color: var(--brown-mid);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .favours-content ul li::before {
+      content: "🍫";
+      font-size: 0.8rem;
+    }
+
+    /* ---------- ORDER ---------- */
+    .order-section {
+      background: var(--brown-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 60px 0;
+    }
+
+    .order-section h2 {
+      color: var(--cream);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 10px;
+    }
+
+    .order-section p {
+      color: var(--gold-light);
+      max-width: 450px;
+      margin: 0 auto 24px;
+      font-size: 0.95rem;
+    }
+
+    .order-links {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .order-links .btn {
+      padding: 14px 32px;
+      font-size: 0.95rem;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--brown-dark);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--brown-dark);
+      border: 2px solid var(--white);
+    }
+
+    .btn-white:hover {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      background: var(--cream-dark);
+      padding: 28px 0 18px;
+      text-align: center;
+      border-top: 1px solid var(--cream);
+    }
+
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      margin-bottom: 14px;
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--brown-light);
+      border-top: 1px solid var(--cream);
+      padding-top: 14px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ---------- FLOATING WHATSAPP ---------- */
+    .float-wa {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background: #25D366;
+      color: white;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+      transition: transform 0.2s;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.08);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 640px) {
+      .nav-tabs {
+        gap: 2px;
+      }
+
+      .tab-btn {
+        font-size: 0.72rem;
+        padding: 6px 10px;
+      }
+
+      .hero {
+        padding: 40px 0 30px;
+      }
+
+      .section {
+        padding: 36px 0;
+      }
+
+      .card {
+        padding: 22px 18px;
+      }
+
+      .menu-poster {
+        padding: 24px 16px;
+      }
+
+      .customize-options {
+        gap: 16px;
+      }
+
+      .customize-arrow {
+        display: none;
+      }
+
+      .toppings-box {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .toppings-list {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tab-btn {
+        font-size: 0.65rem;
+        padding: 5px 8px;
+      }
+
+      .nav-logo {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR WITH TABS ========== -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo" onclick="showTab('home'); return false;">One More, <span>Please</span></a>
+      <div class="nav-tabs">
+        <button class="tab-btn active" data-tab="home" onclick="showTab('home')">Home</button>
+        <button class="tab-btn" data-tab="menu" onclick="showTab('menu')">Menu</button>
+        <button class="tab-btn" data-tab="pricing" onclick="showTab('pricing')">Pricing</button>
+        <button class="tab-btn" data-tab="favours" onclick="showTab('favours')">Favours</button>
+        <button class="tab-btn" data-tab="reviews" onclick="showTab('reviews')">Reviews</button>
+        <button class="tab-btn order-tab" data-tab="order" onclick="showTab('order')">Order</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HALAL NOTE (always visible) ========== -->
+  <div class="halal-note">
+    ✅ Halal ingredients • Prepared in a Muslim household • Not MUIS Halal-certified
+  </div>
+
+  <!-- ========== TAB: HOME ========== -->
+  <div id="tab-home" class="tab-content active">
+    <section class="hero">
+      <div class="container">
+        <h1>One More, <em>Please.</em></h1>
+        <p class="hero-sub">
+          Made for the "one more piece" people. Brownies loaded with flavours — 
+          baked fresh in Singapore.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="showTab('order')">Order Now</button>
+          <button class="btn btn-outline" onclick="showTab('menu')">View Menu</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What We Offer</h2>
+          <p>A quick look at our brownie lineup.</p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-emoji">🍫</div>
+            <h3>Mini Brownie Trays</h3>
+            <p>3 pieces per tray. Perfect for parties & gatherings.</p>
+            <div class="card-price">$10 <small>/ tray</small></div>
+            <button class="btn btn-primary" onclick="showTab('menu')">See Menu</button>
+          </div>
+
+          <div class="card">
+            <div class="card-emoji">💍</div>
+            <h3>Wedding & Event Favours</h3>
+            <p>Custom brownie favour boxes for your big day.</p>
+            <div class="card-price">Custom <small>quote</small></div>
+            <button class="btn btn-primary" onclick="showTab('favours')">Learn More</button>
+          </div>
+
+          <div class="card">
+            <div class="card-emoji">🎁</div>
+            <h3>Everyday Treats</h3>
+            <p>Full-size brownie boxes for gifting & self-care.</p>
+            <div class="card-price">DM <small>for pricing</small></div>
+            <button class="btn btn-primary" onclick="showTab('order')">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== TAB: MENU (REPLACED WITH SCREENSHOT INFO) ========== -->
+  <div id="tab-menu" class="tab-content">
+    <section class="section">
+      <div class="container">
+        <!-- Menu Poster from Screenshot -->
+        <div class="menu-poster">
+          <div class="new-badge">NEW! LAUNCH</div>
+          
+          <div class="poster-brand">One More Please</div>
+          <h2 class="poster-title">Mini Brownie Trays</h2>
+          <p class="poster-subtitle">Perfect for parties, gatherings & celebrations!</p>
+
+          <div class="poster-grid">
+            <!-- Left: Brownie Visuals & Customize -->
+            <div class="poster-left">
+              <div class="brownie-visual">
+                <div class="badge-circle">
+                  <span>3</span>
+                  BROWNIE<br>PIECES<br>PER TRAY
+                </div>
+                🍫
+              </div>
+              <div class="brownie-visual">🍪</div>
+              <div class="brownie-visual">🥜</div>
+            </div>
+
+            <!-- Right: Pricing Info -->
+            <div class="poster-right">
+              <!-- Individual Price -->
+              <div class="individual-price">
+                <div class="label">Individual</div>
+                <div class="price">$10 <small>/tray</small></div>
+              </div>
+
+              <!-- Party Pricing -->
+              <div class="party-pricing-box">
+                <div class="header">Party Pricing</div>
+                <div class="row">
+                  <span>5 – 9 trays</span>
+                  <span class="price">$9 /tray</span>
+                </div>
+                <div class="row">
+                  <span>10 – 19 trays</span>
+                  <span class="price">$8.50 /tray</span>
+                </div>
+                <div class="row">
+                  <span>20 – 29 trays</span>
+                  <span class="price">$8 /tray</span>
+                </div>
+                <div class="row">
+                  <span>30 – 49 trays</span>
+                  <span class="price">$7.50 /tray</span>
+                </div>
+                <div class="row">
+                  <span>50+ trays</span>
+                  <span class="price">$7 /tray</span>
+                </div>
+              </div>
+
+              <!-- Min Order Note -->
+              <div class="min-order-note">
+                <strong>Minimum order for party pricing: 5 trays</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Customize Section -->
+          <div class="customize-section">
+            <div class="customize-title">Customize Your Flavour! ♡</div>
+            <div class="customize-options">
+              <div class="customize-option">
+                <div class="icon">🍫</div>
+                <div class="name">Nutella Only</div>
+                <div class="desc">Rich & chocolatey</div>
+              </div>
+              <div class="customize-arrow">→</div>
+              <div class="customize-option">
+                <div class="icon">🍪</div>
+                <div class="name">Biscoff Only</div>
+                <div class="desc">Caramelised biscuit</div>
+              </div>
+              <div class="customize-arrow">→</div>
+              <div class="customize-option">
+                <div class="icon">🥜</div>
+                <div class="name">Mix (Nutella + Biscoff)</div>
+                <div class="desc">Best of both worlds</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toppings -->
+          <div class="toppings-box">
+            <div class="toppings-label">
+              Toppings
+              <span>+ $2 EACH</span>
+            </div>
+            <ul class="toppings-list">
+              <li>Chocolate Chips</li>
+              <li>Rainbow Sprinkles</li>
+              <li>Chocolate Sprinkles</li>
+              <li>Mini Marshmallow</li>
+            </ul>
+          </div>
+
+          <!-- Bottom Tagline -->
+          <div class="poster-tagline">
+            ♡ Thank you for supporting our small home bakery! ♡<br>
+            <span class="brand">♥ One More Please ♥</span>
+          </div>
+
+          <div class="new-badge-bottom">NEW! LAUNCH</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== TAB: PRICING ========== -->
+  <div id="tab-pricing" class="tab-content">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Party Pricing</h2>
+          <p>Mini Brownie Trays — the more you order, the more you save.</p>
+          <div class="divider"></div>
+        </div>
+
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Price per Tray</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1 – 4 trays</td><td>$10.00</td></tr>
+            <tr><td>5 – 9 trays</td><td>$9.00</td></tr>
+            <tr><td>10 – 19 trays</td><td>$8.50</td></tr>
+            <tr><td>20 – 29 trays</td><td>$8.00</td></tr>
+            <tr><td>30 – 49 trays</td><td>$7.50</td></tr>
+            <tr><td>50+ trays</td><td>$7.00</td></tr>
+          </tbody>
+        </table>
+        <p class="pricing-note">* Minimum 5 trays for party pricing. Toppings +$2 each: Chocolate Chips, Rainbow Sprinkles, Chocolate Sprinkles, Mini Marshmallow.</p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Need a Custom Quote?</h2>
+          <p>For weddings, corporate orders, or bulk quantities — just reach out.</p>
+          <div class="divider"></div>
+        </div>
+        <div style="text-align: center;">
+          <button class="btn btn-primary" onclick="showTab('order')">Get in Touch</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== TAB: FAVOURS ========== -->
+  <div id="tab-favours" class="tab-content">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Wedding & Event Favours</h2>
+          <p>Custom brownie favour boxes your guests will remember.</p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="favours-flex">
+          <div class="favours-image">
+            🎀 📦 🍫
+          </div>
+          <div class="favours-content">
+            <h3>Favour Boxes, Done Right</h3>
+            <p>Beautifully packaged brownie favours for weddings, solemnisation, birthdays, and corporate events.</p>
+            <ul>
+              <li>2 brownie pieces per favour box</li>
+              <li>Flavours: Plain, Nutella, Biscoff, Oreo, Mix & Match</li>
+              <li>One More Please logo sticker</li>
+              <li>"Thank You for Coming" sticker</li>
+              <li>Personalised stickers available</li>
+              <li>Contains egg • Halal ingredients</li>
+            </ul>
+            <button class="btn btn-primary" onclick="showTab('order')">Request a Quote</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== TAB: REVIEWS ========== -->
+  <div id="tab-reviews" class="tab-content">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>The Reviews Are In</h2>
+          <p>Real words from real brownie lovers.</p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <p class="review-text">"The brownies were so good! Sooo fudgey! 10/10!"</p>
+            <p class="review-author">— Happy Customer</p>
+            <p class="review-date">29 Dec 2024</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">"Biscoff and brownies are a perfect match. The most tastiest brownie!"</p>
+            <p class="review-author">— Official Fan</p>
+            <p class="review-date">11 May 2025</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">"Absolutely delicious. I ate it all and 'forgot' to leave some for my husband 😂"</p>
+            <p class="review-author">— @theniramcollective</p>
+            <p class="review-date">9 Dec 2025</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">"Red Velvet Brownies — perfectly rich, moist, and packed with flavor!"</p>
+            <p class="review-author">— Satisfied Customer</p>
+            <p class="review-date">7 Sept 2025</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">"Thank you for the heavenly goodies darling!!! 😋"</p>
+            <p class="review-author">— @scrumpybites</p>
+            <p class="review-date">8 Dec 2025</p>
+          </div>
+
+          <div class="review-card">
+            <p class="review-text">"So yummy!"</p>
+            <p class="review-author">— Loyal Customer</p>
+            <p class="review-date">6 Feb 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== TAB: ORDER ========== -->
+  <div id="tab-order" class="tab-content">
+    <section class="order-section">
+      <div class="container">
+        <h2>Ready to Order?</h2>
+        <p>All orders and custom requests are handled via WhatsApp or Instagram DM. Let's chat about your cravings!</p>
+        <div class="order-links">
+          <a href="https://wa.me/6591234567" target="_blank" class="btn btn-gold">💬 WhatsApp Us</a>
+          <a href="https://instagram.com/onemoreplease.sg" target="_blank" class="btn btn-white">📸 Instagram DM</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>How It Works</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="cards-grid">
+          <div class="card" style="text-align: center;">
+            <div class="card-emoji">1️⃣</div>
+            <h3>Choose Your Treats</h3>
+            <p>Pick your flavour, quantity, and toppings.</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <div class="card-emoji">2️⃣</div>
+            <h3>Send Us a DM</h3>
+            <p>Message us on WhatsApp or Instagram.</p>
+          </div>
+          <div class="card" style="text-align: center;">
+            <div class="card-emoji">3️⃣</div>
+            <h3>We Bake & Deliver</h3>
+            <p>Freshly baked and delivered islandwide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">One More, Please</div>
+      <p class="footer-tagline">Made for the "one more piece" people. 🍫</p>
+      <p class="footer-copy">
+        Islandwide Singapore • DM to order<br>
+        Halal ingredients • Prepared in a Muslim household (not MUIS Halal-certified)<br>
+        © 2026 One More, Please. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========== FLOATING WHATSAPP ========== -->
+  <a href="https://wa.me/6591234567" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- ========== TAB SWITCHING SCRIPT ========== -->
+  <script>
+    function showTab(tabId) {
+      // Hide all tab contents
+      var contents = document.querySelectorAll('.tab-content');
+      contents.forEach(function(content) {
+        content.classList.remove('active');
+      });
+
+      // Remove active class from all tab buttons
+      var buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+
+      // Show selected tab content
+      var selectedContent = document.getElementById('tab-' + tabId);
+      if (selectedContent) {
+        selectedContent.classList.add('active');
+      }
+
+      // Add active class to clicked button
+      var activeButton = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+
+      // Scroll to top of page for a fresh view
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
