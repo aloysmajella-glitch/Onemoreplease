@@ -347,19 +347,15 @@
       font-size: 2rem;
       margin-bottom: 10px;
     }
-    .card-emoji {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
 
-.card-image {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 14px;
-  display: block;
-}
+    .card-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      display: block;
+    }
 
     .card h3 {
       font-size: 1.2rem;
@@ -745,49 +741,6 @@
       font-size: 0.75rem;
     }
 
-    /* ---------- PRICING TABLE ---------- */
-    .pricing-table {
-      width: 100%;
-      border-collapse: collapse;
-      background: var(--white);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      font-size: 0.85rem;
-    }
-
-    .pricing-table th {
-      background: var(--brown-dark);
-      color: var(--gold-light);
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .pricing-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--cream-dark);
-      color: var(--brown-mid);
-    }
-
-    .pricing-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .pricing-table tr:nth-child(even) {
-      background: var(--cream);
-    }
-
-    .pricing-note {
-      font-size: 0.75rem;
-      color: var(--brown-light);
-      margin-top: 10px;
-      font-style: italic;
-    }
-
     /* ---------- REVIEWS ---------- */
     .reviews-grid {
       display: grid;
@@ -1066,7 +1019,6 @@
       <div class="nav-tabs">
         <button class="tab-btn active" data-tab="home" onclick="showTab('home')">Home</button>
         <button class="tab-btn" data-tab="menu" onclick="showTab('menu')">Menu</button>
-        <button class="tab-btn" data-tab="pricing" onclick="showTab('pricing')">Pricing</button>
         <button class="tab-btn" data-tab="favours" onclick="showTab('favours')">Favours</button>
         <button class="tab-btn" data-tab="reviews" onclick="showTab('reviews')">Reviews</button>
         <button class="tab-btn order-tab" data-tab="order" onclick="showTab('order')">Order</button>
@@ -1279,50 +1231,6 @@
           </div>
 
           <div class="new-badge-bottom">NEW! LAUNCH</div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ========== TAB: PRICING ========== -->
-  <div id="tab-pricing" class="tab-content">
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Party Pricing</h2>
-          <p>Mini Brownie Trays — the more you order, the more you save.</p>
-          <div class="divider"></div>
-        </div>
-
-        <table class="pricing-table">
-          <thead>
-            <tr>
-              <th>Quantity</th>
-              <th>Price per Tray</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1 – 4 trays</td><td>$10.00</td></tr>
-            <tr><td>5 – 9 trays</td><td>$9.00</td></tr>
-            <tr><td>10 – 19 trays</td><td>$8.50</td></tr>
-            <tr><td>20 – 29 trays</td><td>$8.00</td></tr>
-            <tr><td>30 – 49 trays</td><td>$7.50</td></tr>
-            <tr><td>50+ trays</td><td>$7.00</td></tr>
-          </tbody>
-        </table>
-        <p class="pricing-note">* Minimum 5 trays for party pricing. Toppings +$2 each: Chocolate Chips, Rainbow Sprinkles, Chocolate Sprinkles, Mini Marshmallow.</p>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2>Need a Custom Quote?</h2>
-          <p>For weddings, corporate orders, or bulk quantities — just reach out.</p>
-          <div class="divider"></div>
-        </div>
-        <div style="text-align: center;">
-          <button class="btn btn-primary" onclick="showTab('order')">Get in Touch</button>
         </div>
       </div>
     </section>
