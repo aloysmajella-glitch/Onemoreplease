@@ -755,16 +755,6 @@
       border: 1px solid var(--cream-dark);
     }
 
-    .review-image-link {
-      display: block;
-      cursor: zoom-in;
-      transition: opacity 0.2s ease;
-    }
-
-    .review-image-link:hover {
-      opacity: 0.88;
-    }
-
     .review-image,
     .review-card img {
       width: 100% !important;
@@ -777,6 +767,12 @@
       display: block;
       border: 1px solid var(--cream-dark);
       background: var(--white);
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+
+    .review-image:hover {
+      opacity: 0.88;
     }
 
     .review-text {
@@ -796,6 +792,71 @@
       font-size: 0.7rem;
       color: var(--brown-light);
       font-weight: 400;
+    }
+
+    /* ---------- LIGHTBOX ---------- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(20, 10, 5, 0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 1.8rem;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      transition: background 0.2s;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      text-align: center;
+      padding: 0 16px;
     }
 
     /* ---------- FAVOURS ---------- */
@@ -1013,6 +1074,19 @@
 
       .toppings-list {
         justify-content: center;
+      }
+
+      .lightbox-close {
+        top: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
+
+      .lightbox-hint {
+        font-size: 0.65rem;
+        bottom: 14px;
       }
     }
 
@@ -1297,60 +1371,48 @@
       <div class="container">
         <div class="section-header">
           <h2>The Reviews Are In</h2>
-          <p>Real words from real brownie lovers. Tap on any screenshot to view it in full.</p>
+          <p>Real words from real brownie lovers. Tap any screenshot to view it in full.</p>
           <div class="divider"></div>
         </div>
 
         <div class="reviews-grid">
           <div class="review-card">
-            <a href="images/Review.jpg.png" target="_blank" class="review-image-link">
-              <img src="images/Review.jpg.png" alt="Customer review" class="review-image">
-            </a>
+            <img src="images/Review.jpg.png" alt="Customer review" class="review-image" onclick="openLightbox(this.src)">
             <p class="review-text">"Worlds bestest brownies wiped out by my guests! Thanks @onemoreplease.sg"</p>
             <p class="review-author">— Happy Customer</p>
             <p class="review-date">29 Dec 2024</p>
           </div>
 
           <div class="review-card">
-            <a href="images/Review2.jpg.png" target="_blank" class="review-image-link">
-              <img src="images/Review2.jpg.png" alt="Customer review" class="review-image">
-            </a>
+            <img src="images/Review2.jpg.png" alt="Customer review" class="review-image" onclick="openLightbox(this.src)">
             <p class="review-text">"Awesome brownies so gao so chocolatey 💙"</p>
             <p class="review-author">— Official Fan</p>
             <p class="review-date">11 May 2025</p>
           </div>
 
           <div class="review-card">
-            <a href="images/Review3.jpg.png" target="_blank" class="review-image-link">
-              <img src="images/Review3.jpg.png" alt="Customer review" class="review-image">
-            </a>
+            <img src="images/Review3.jpg.png" alt="Customer review" class="review-image" onclick="openLightbox(this.src)">
             <p class="review-text">"Wo i must say i love the crispy top followed with the thick chocolate goodness and the smoothness of the cake. Actuality i usually dont eat more than 1 brownie at any one time. But i am a bit greedy for more. Now into my 2nd one!"</p>
             <p class="review-author">— @theniramcollective</p>
             <p class="review-date">9 Dec 2025</p>
           </div>
 
           <div class="review-card">
-            <a href="images/review-4.jpg" target="_blank" class="review-image-link">
-              <img src="images/review-4.jpg" alt="Customer review" class="review-image">
-            </a>
+            <img src="images/review-4.jpg" alt="Customer review" class="review-image" onclick="openLightbox(this.src)">
             <p class="review-text">"Red Velvet Brownies — perfectly rich, moist, and packed with flavor!"</p>
             <p class="review-author">— Satisfied Customer</p>
             <p class="review-date">7 Sept 2025</p>
           </div>
 
           <div class="review-card">
-            <a href="images/review-5.jpg" target="_blank" class="review-image-link">
-              <img src="images/review-5.jpg" alt="Customer review" class="review-image">
-            </a>
+            <img src="images/review-5.jpg" alt="Customer review" class="review-image" onclick="openLightbox(this.src)">
             <p class="review-text">"Thank you for the heavenly goodies darling!!! 😋"</p>
             <p class="review-author">— @scrumpybites</p>
             <p class="review-date">8 Dec 2025</p>
           </div>
 
           <div class="review-card">
-            <a href="images/review-6.jpg" target="_blank" class="review-image-link">
-              <img src="images/review-6.jpg" alt="Customer review" class="review-image">
-            </a>
+            <img src="images/review-6.jpg" alt="Customer review" class="review-image" onclick="openLightbox(this.src)">
             <p class="review-text">"So yummy!"</p>
             <p class="review-author">— Loyal Customer</p>
             <p class="review-date">6 Feb 2026</p>
@@ -1416,7 +1478,14 @@
   <!-- ========== FLOATING WHATSAPP ========== -->
   <a href="https://wa.me/6591234567" target="_blank" class="float-wa" aria-label="Chat on WhatsApp">💬</a>
 
-  <!-- ========== TAB SWITCHING SCRIPT ========== -->
+  <!-- ========== LIGHTBOX ========== -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)" aria-label="Close">✕</button>
+    <img src="" alt="Full review" id="lightbox-img" onclick="event.stopPropagation()">
+    <span class="lightbox-hint">Tap anywhere or press ESC to close</span>
+  </div>
+
+  <!-- ========== TAB SWITCHING + LIGHTBOX SCRIPT ========== -->
   <script>
     function showTab(tabId) {
       var contents = document.querySelectorAll('.tab-content');
@@ -1441,6 +1510,30 @@
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // ---- Lightbox ----
+    function openLightbox(src) {
+      var lb = document.getElementById('lightbox');
+      var img = document.getElementById('lightbox-img');
+      img.src = src;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      // Prevent closing if the user clicks directly on the image itself
+      if (event && event.target && event.target.id === 'lightbox-img') return;
+      var lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close lightbox on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
   </script>
 
 </body>
