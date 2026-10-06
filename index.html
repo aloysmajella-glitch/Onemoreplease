@@ -282,7 +282,6 @@
     .order-hero h2 { color: var(--cream); font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 10px; }
     .order-hero p { color: var(--gold-light); max-width: 500px; margin: 0 auto; font-size: 0.95rem; }
 
-    /* Choice cards */
     .order-choice-wrap {
       max-width: 700px;
       margin: -20px auto 0;
@@ -368,29 +367,13 @@
       max-width: 200px;
     }
 
-    .choice-whatsapp {
-      border-color: #25D366;
-    }
-    .choice-whatsapp:hover {
-      border-color: #1EBE5A;
-      background: #EAFBF1;
-    }
-    .choice-whatsapp .choice-icon {
-      background: #25D366;
-      color: white;
-    }
+    .choice-whatsapp { border-color: #25D366; }
+    .choice-whatsapp:hover { border-color: #1EBE5A; background: #EAFBF1; }
+    .choice-whatsapp .choice-icon { background: #25D366; color: white; }
 
-    .choice-insta {
-      border-color: #E1306C;
-    }
-    .choice-insta:hover {
-      border-color: #C41E5A;
-      background: #FCEBF2;
-    }
-    .choice-insta .choice-icon {
-      background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
-      color: white;
-    }
+    .choice-insta { border-color: #E1306C; }
+    .choice-insta:hover { border-color: #C41E5A; background: #FCEBF2; }
+    .choice-insta .choice-icon { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF); color: white; }
 
     /* ---------- ORDER FORM ---------- */
     .order-form-wrap {
@@ -405,80 +388,43 @@
       padding: 32px 28px;
     }
 
-    /* Back button */
     .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: none;
-      border: none;
-      font-family: var(--font-body);
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--brown-light);
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: 50px;
-      margin-bottom: 12px;
-      transition: all 0.15s ease;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: none; border: none;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 600;
+      color: var(--brown-light); cursor: pointer;
+      padding: 8px 12px; border-radius: 50px;
+      margin-bottom: 12px; transition: all 0.15s ease;
     }
-    .back-btn:hover {
-      background: var(--cream-dark);
-      color: var(--brown-dark);
-    }
+    .back-btn:hover { background: var(--cream-dark); color: var(--brown-dark); }
 
-    /* Form intro header */
     .form-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      background: #EAFBF1;
-      border-radius: 10px;
-      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px; background: #EAFBF1;
+      border-radius: 10px; margin-bottom: 20px;
       border: 1px solid #C7EED6;
     }
     .form-header-icon {
-      width: 36px;
-      height: 36px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
+      width: 36px; height: 36px; background: #25D366; color: white;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
     }
-    .form-header-text {
-      font-size: 0.8rem;
-      color: #1B5E36;
-      line-height: 1.4;
-    }
+    .form-header-text { font-size: 0.8rem; color: #1B5E36; line-height: 1.4; }
     .form-header-text strong { color: #0F3D22; }
 
-    .form-section {
-      padding: 20px 0;
-      border-bottom: 1px dashed var(--cream-dark);
-    }
+    .form-section { padding: 20px 0; border-bottom: 1px dashed var(--cream-dark); }
     .form-section:last-of-type { border-bottom: none; }
     .form-section:first-of-type { padding-top: 0; }
 
     .form-label {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 4px;
+      display: block; font-family: var(--font-heading);
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--brown-dark); margin-bottom: 4px;
     }
 
     .form-sublabel {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--brown-light);
-      margin-bottom: 12px;
-      font-style: italic;
+      display: block; font-size: 0.78rem;
+      color: var(--brown-light); margin-bottom: 12px; font-style: italic;
     }
 
     .form-required { color: #E91E63; font-size: 0.75rem; font-weight: 600; margin-left: 4px; }
@@ -1014,7 +960,7 @@
           <!-- === NAME === -->
           <div class="form-section">
             <label class="form-label" for="custName">Your Name <span class="form-required">*</span></label>
-            <input type="text" id="custName" class="form-input" placeholder="e.g. Aisyah" required>
+            <input type="text" id="custName" class="form-input" placeholder="e.g. Aisyah">
           </div>
 
           <!-- === FLAVOURS === -->
@@ -1120,8 +1066,8 @@
             <span class="form-label">Preferred Date & Time <span class="form-required">*</span></span>
             <span class="form-sublabel">Please order at least 3 days in advance.</span>
             <div class="form-row">
-              <input type="date" id="prefDate" class="form-input" required>
-              <input type="time" id="prefTime" class="form-input" required>
+              <input type="date" id="prefDate" class="form-input">
+              <input type="time" id="prefTime" class="form-input">
             </div>
           </div>
 
@@ -1129,7 +1075,7 @@
           <div class="form-section">
             <span class="form-label">Contact Number <span class="form-required">*</span></span>
             <span class="form-sublabel">So we can WhatsApp you back if needed.</span>
-            <input type="tel" id="custPhone" class="form-input" placeholder="e.g. 9123 4567" required>
+            <input type="tel" id="custPhone" class="form-input" placeholder="e.g. 9123 4567">
           </div>
 
           <!-- === ADDRESS === -->
@@ -1212,8 +1158,8 @@
 
   <!-- ========== SCRIPTS ========== -->
   <script>
-    /* ===== WHATSAPP NUMBER — UPDATE THIS ===== */
-    const WHATSAPP_NUMBER = "6596494758"; // ⚠️ UPDATE (country code + number, no spaces or +)
+    /* ===== WHATSAPP NUMBER ===== */
+    const WHATSAPP_NUMBER = "6596494758";
 
     /* ===== TAB SWITCHING ===== */
     function showTab(tabId) {
@@ -1223,12 +1169,7 @@
       if (tab) tab.classList.add('active');
       const btn = document.querySelector('.tab-btn[data-tab="' + tabId + '"]');
       if (btn) btn.classList.add('active');
-
-      // Reset order tab to choice view every time
-      if (tabId === 'order') {
-        showOrderChoice();
-      }
-
+      if (tabId === 'order') showOrderChoice();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1292,13 +1233,10 @@
     function toggleAddressField() {
       const method = document.querySelector('input[name="deliveryMethod"]:checked')?.value;
       const addrSection = document.getElementById('addressSection');
-      const addrField = document.getElementById('custAddress');
       if (method === 'Self-Collection') {
         addrSection.style.display = 'none';
-        addrField.required = false;
       } else {
         addrSection.style.display = 'block';
-        addrField.required = true;
       }
     }
     toggleAddressField();
@@ -1349,6 +1287,14 @@
       document.getElementById(id)?.addEventListener('change', buildSummary);
     });
 
+    /* ===== HELPER: scroll to field ===== */
+    function focusField(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => el.focus(), 300);
+    }
+
     /* ===== SUBMIT ORDER ===== */
     function submitOrder(event) {
       event.preventDefault();
@@ -1364,12 +1310,43 @@
       const address = document.getElementById('custAddress').value.trim();
       const notes = document.getElementById('custNotes').value.trim();
 
-      if (!name) return alert('Please enter your name.');
-      if (!flavours.length) return alert('Please select at least one flavour.');
-      if (!phone) return alert('Please enter your contact number.');
-      if (!date || !time) return alert('Please select your preferred date and time.');
-      if (delivery === 'Delivery' && !address) return alert('Please enter your delivery address.');
+      // --- MANUAL VALIDATION with clear feedback ---
+      if (!name) {
+        alert('⚠️ Please enter your name.');
+        focusField('custName');
+        return;
+      }
+      if (!flavours.length) {
+        alert('⚠️ Please select at least one brownie flavour.');
+        return;
+      }
+      if (!qty || parseInt(qty) < 1) {
+        alert('⚠️ Please enter at least 1 tray.');
+        focusField('qty');
+        return;
+      }
+      if (!date) {
+        alert('⚠️ Please select your preferred date.');
+        focusField('prefDate');
+        return;
+      }
+      if (!time) {
+        alert('⚠️ Please select your preferred time.');
+        focusField('prefTime');
+        return;
+      }
+      if (!phone) {
+        alert('⚠️ Please enter your contact number.');
+        focusField('custPhone');
+        return;
+      }
+      if (delivery === 'Delivery' && !address) {
+        alert('⚠️ Please enter your delivery address, or choose Self-Collection.');
+        focusField('custAddress');
+        return;
+      }
 
+      // --- Build WhatsApp message ---
       let msg = `Hi One More Please! 🍫\n\nI'd like to place an order:\n\n`;
       msg += `👤 *Name:* ${name}\n`;
       msg += `📱 *Contact:* ${phone}\n\n`;
@@ -1382,8 +1359,9 @@
       if (notes) msg += `\n📝 *Notes:* ${notes}\n`;
       msg += `\nThank you! 🤎`;
 
+      // --- Open WhatsApp ---
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
+      window.location.href = url;
     }
 
     /* ===== SET MIN DATE (3 days from today) ===== */
@@ -1393,7 +1371,8 @@
       const yyyy = d.getFullYear();
       const mm = String(d.getMonth() + 1).padStart(2, '0');
       const dd = String(d.getDate()).padStart(2, '0');
-      document.getElementById('prefDate').min = `${yyyy}-${mm}-${dd}`;
+      const el = document.getElementById('prefDate');
+      if (el) el.min = `${yyyy}-${mm}-${dd}`;
     })();
   </script>
 
