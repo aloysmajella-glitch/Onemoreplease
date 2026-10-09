@@ -1310,7 +1310,6 @@
       const address = document.getElementById('custAddress').value.trim();
       const notes = document.getElementById('custNotes').value.trim();
 
-      // --- MANUAL VALIDATION with clear feedback ---
       if (!name) {
         alert('⚠️ Please enter your name.');
         focusField('custName');
@@ -1346,7 +1345,6 @@
         return;
       }
 
-      // --- Build WhatsApp message ---
       let msg = `Hi One More Please! 🍫\n\nI'd like to place an order:\n\n`;
       msg += `👤 *Name:* ${name}\n`;
       msg += `📱 *Contact:* ${phone}\n\n`;
@@ -1359,7 +1357,6 @@
       if (notes) msg += `\n📝 *Notes:* ${notes}\n`;
       msg += `\nThank you! 🤎`;
 
-      // --- Open WhatsApp ---
       const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
       window.location.href = url;
     }
